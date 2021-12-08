@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,12 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::post('/comments',[CommentsController::class,'store'])->name('comments.store')->middleware('auth');
 
 Route::get('/categories',[CategoryController::class, 'index'])->name('categories.index')->middleware('auth');
-Route::get('/categories/{category}',[CategoryController::class,'show'])->name('categories.show');
-Route::get('/posts/{post}',[PostController::class,'show'])->name('post.show');
+Route::get('/categories/{category}',[CategoryController::class,'show'])->name('categories.show')->middleware('auth');
+Route::get('/posts/{post}',[PostController::class,'show'])->name('post.show')->middleware('auth');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

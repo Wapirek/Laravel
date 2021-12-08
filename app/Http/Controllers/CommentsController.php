@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comments;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CommentsController extends Controller
 {
@@ -30,12 +32,15 @@ class CommentsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $comments = new Comments($request->all());
+        $comments->save();
+        return redirect(route('dashboard'));
+
     }
 
     /**

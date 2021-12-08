@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->integer('categoryID');
             $table->string('author');
             $table->timestamps();
-            $table->foreign('categoryID')->references('id')->on('categories');
+            //$table->foreign('categoryID')->references('id')->on('categories');
         });
     }
 

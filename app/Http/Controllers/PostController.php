@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
@@ -47,8 +48,10 @@ class PostController extends Controller
     
     public function show(Post $post): View
     {
+        $comments = DB::select("SELECT * FROM `comments` where postID={$post->id}");
         return view("posts.index",[
-            'post' => $post
+            'post' => $post,
+            'comments' => $comments
         ]);
     }
 
