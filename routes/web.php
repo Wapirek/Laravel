@@ -21,6 +21,7 @@ Route::get('/', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::post('/comments',[CommentsController::class,'store'])->name('comments.store')->middleware('auth');
+Route::post('/posts',[PostController::class,'store'])->name('post.store')->middleware('auth');
 
 Route::get('/categories',[CategoryController::class, 'index'])->name('categories.index')->middleware('auth');
 Route::get('/categories/{category}',[CategoryController::class,'show'])->name('categories.show')->middleware('auth');

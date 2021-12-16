@@ -39,8 +39,8 @@ class CommentsController extends Controller
     {
         $comments = new Comments($request->all());
         $comments->save();
-        return redirect(route('dashboard'));
-
+        return back();
+        /**redirect(route('dashboard')); */
     }
 
     /**

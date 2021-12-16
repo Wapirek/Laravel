@@ -31,12 +31,15 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post($request->all());
+        $post->save();
+        return back();
+        /**redirect(route('dashboard')); */
     }
 
     /**

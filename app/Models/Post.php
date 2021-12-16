@@ -13,6 +13,8 @@ class Post extends Model
     protected $fillable = [
         'name',
         'description',
+        'categoryID',
+        'author'
     ];
 
     public function category():BelongsTo{
