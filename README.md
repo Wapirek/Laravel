@@ -7,7 +7,7 @@
 Jędrzej M.
 
 ## Jak postawić
-
+<pre>
 myapp - 127.0.0.1:3000
 mariadb - 172.18.0.2:3306
 
@@ -36,4 +36,4 @@ Terminal 3
     cp .env.example .env
 Pora wgrać przykładową baze to jakis tam klient sql odpalacz i łaczyś po ip 172.18.0.2:3306
 i wrzycamy bazę przykładową 
-
+</pre>
