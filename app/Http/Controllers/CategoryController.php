@@ -12,13 +12,15 @@ class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param  Category  $category
      * @return View
      */
     public function index(): View
     {
+        //$counterPosts = DB::select("SELECT count(id.posts) FROM `posts` where categoryID={$category->id}");
         return view("categories.index",[
-            'categories' => Category::orderBy('name','ASC')->get()
+            'categories' => Category::orderBy('name','ASC')->get(),
+            //'counterPosts' => $counterPosts
         ]);
     }
 

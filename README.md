@@ -31,7 +31,7 @@ Terminal 1
     
 Terminal 3
     docker exec -it laravel_myapp_1 bash
-    compose i
+    composer i
     php artisan migrate
     cp .env.example .env
 Pora wgrać przykładową baze to jakis tam klient sql odpalacz i łaczyś po ip 172.18.0.2:3306
