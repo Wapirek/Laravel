@@ -2,7 +2,7 @@
     
     <x-slot name="header">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <p><a href="" class="btn btn-outline-dark">Cofnij</a></p>
+        <p><a href="{{ url()->previous() }}" class="btn btn-outline-dark">Cofnij</a></p>
         <p class="h4 font-weight-bold">Temat:   {{$post->name}}   </p>
         <br>
         <p class="h5">{{$post->description}} </p>
@@ -33,8 +33,9 @@
                         @hasrole('admin')
                         <p class="bg-secondary">
                         <h5>-----</h5>
-                            <button class="btn btn-danger btn-sm delete" data-id="{{$comment->id}}">x</button>
-                            Skasuj post
+                            
+                                <a class="button btn btn-danger btn-sm delete" data-id="{{$comment->id}}" href="/comments-delete/{{$comment->id}}">x</a>
+                 
                         @endrole
                         </p>
 
